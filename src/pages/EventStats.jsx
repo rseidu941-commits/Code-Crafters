@@ -42,7 +42,7 @@ export default function EventStats() {
     );
   }
 
-  if (user && Number(event.organizerId) !== user.id) {
+  if (user && Number(event.organizerId) !== Number(user.id)) {
     return (
       <div className="event-stats-page bg-surface min-h-[60vh] flex items-center justify-center">
         <p className="event-stats-page__error text-secondary">You do not have access to this page.</p>

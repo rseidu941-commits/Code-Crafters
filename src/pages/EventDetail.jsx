@@ -27,7 +27,7 @@ export default function EventDetail() {
       setRegistrations(data);
       setRegisteredCount(data.length);
       if (user) {
-        setIsRegistered(data.some(r => Number(r.userId) === user.id));
+        setIsRegistered(data.some(r => Number(r.userId) === Number(user.id)));
       }
     });
   }, [id, user]);
@@ -66,7 +66,7 @@ export default function EventDetail() {
   const handleCancel = async () => {
     if (!isRegistered) return;
 
-    const reg = registrations.find(r => Number(r.userId) === user.id);
+    const reg = registrations.find(r => Number(r.userId) === Number(user.id));
     if (!reg) return;
 
     try {

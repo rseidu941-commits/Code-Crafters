@@ -4,7 +4,7 @@ const API = axios.create({ baseURL: 'http://localhost:3000' });
 
 // Auth
 export const login = (email, password) =>
-  API.get(`/users?email=${encodeURIComponent(email)}&password=${password}`).then(res => res.data[0]);
+  API.get(`/users?email=${encodeURIComponent(email)}`).then(res => res.data.find(u => u.password === password));
 
 export const registerUser = (userData) =>
   API.post('/users', userData).then(res => res.data);
