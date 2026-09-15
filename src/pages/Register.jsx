@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { registerUser } from '../api/api';
+import CommunityProof from '../components/CommunityProof';
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -34,7 +35,8 @@ export default function Register() {
   };
 
   return (
-    <div className="register-page bg-surface min-h-[60vh] flex items-center justify-center py-12 px-4">
+    <div className="register-page bg-surface min-h-[60vh] flex flex-col items-center justify-center py-12 px-4">
+      <CommunityProof />
       <div className="register-page__card w-full max-w-md bg-white rounded-xl shadow-sm border border-gray-100 p-8">
         <h1 className="register-page__title text-3xl font-bold text-secondary text-center mb-6">Register</h1>
 

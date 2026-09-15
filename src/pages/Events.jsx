@@ -6,6 +6,7 @@ import FilterBar from '../components/FilterBar';
 export default function Events() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
     category: '',
@@ -18,6 +19,9 @@ export default function Events() {
     setLoading(true);
     getEvents().then(data => {
       setEvents(data);
+      setLoading(false);
+    }).catch(() => {
+      setError('Failed to load events. Please try again later.');
       setLoading(false);
     });
   }, []);
@@ -55,6 +59,8 @@ export default function Events() {
 
         {loading ? (
           <p className="events-page__loading text-center text-secondary py-12">Loading events...</p>
+        ) : error ? (
+          <p className="events-page__error text-center text-red-500 py-12">{error}</p>
         ) : filteredEvents.length === 0 ? (
           <p className="events-page__empty text-center text-secondary py-12">No events found matching your filters.</p>
         ) : (

@@ -18,7 +18,7 @@ export default function EventStats() {
   }, [id]);
 
   const getUserName = (userId) => {
-    const found = users.find(u => u.id === userId);
+    const found = users.find(u => Number(u.id) === Number(userId));
     return found ? found.name : `User #${userId}`;
   };
 
@@ -42,7 +42,7 @@ export default function EventStats() {
     );
   }
 
-  if (user && event.organizerId !== user.id) {
+  if (user && Number(event.organizerId) !== user.id) {
     return (
       <div className="event-stats-page bg-surface min-h-[60vh] flex items-center justify-center">
         <p className="event-stats-page__error text-secondary">You do not have access to this page.</p>

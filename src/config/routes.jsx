@@ -9,6 +9,7 @@ import EditEvent from '../pages/EditEvent';
 import MyEvents from '../pages/MyEvents';
 import EventStats from '../pages/EventStats';
 import MyRegistrations from '../pages/MyRegistrations';
+import NotFound from '../pages/NotFound';
 import ProtectedRoute from '../components/ProtectedRoute';
 
 export default function AppRoutes() {
@@ -32,6 +33,9 @@ export default function AppRoutes() {
       <Route element={<ProtectedRoute allow={["spectator"]} />}>
         <Route path="/my-registrations" element={<MyRegistrations />} />
       </Route>
+
+      {/* 404 catch-all */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

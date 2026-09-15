@@ -11,7 +11,7 @@ export default function MyEvents() {
   useEffect(() => {
     if (user) {
       getEvents().then(data => {
-        const myEvents = data.filter(e => e.organizerId === user.id);
+        const myEvents = data.filter(e => Number(e.organizerId) === user.id);
         setEvents(myEvents);
 
         myEvents.forEach(event => {

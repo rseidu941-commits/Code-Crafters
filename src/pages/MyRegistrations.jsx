@@ -22,7 +22,7 @@ export default function MyRegistrations() {
     }
   }, [user]);
 
-  const getEventById = (eventId) => events.find(e => e.id === eventId);
+  const getEventById = (eventId) => events.find(e => Number(e.id) === Number(eventId));
 
   if (loading) {
     return (

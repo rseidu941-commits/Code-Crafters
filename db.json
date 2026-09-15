@@ -1,9 +1,33 @@
 {
   "users": [
-    { "id": 1, "name": "Rukayatu Seidu", "email": "rukayatu@femcoders.com", "password": "1234", "role": "organizer" },
-    { "id": 2, "name": "Abdul Hamid Umar", "email": "abdul@femcoders.com", "password": "1234", "role": "organizer" },
-    { "id": 3, "name": "Zulieha Tahiru", "email": "zulieha@example.com", "password": "1234", "role": "spectator" },
-    { "id": 4, "name": "Ramatu Abdul Rahman", "email": "ramatu@example.com", "password": "1234", "role": "spectator" }
+    {
+      "id": 1,
+      "name": "Rukayatu Seidu",
+      "email": "rukayatu@femcoders.com",
+      "password": "1234",
+      "role": "organizer"
+    },
+    {
+      "id": 2,
+      "name": "Abdul Hamid Umar",
+      "email": "abdul@femcoders.com",
+      "password": "1234",
+      "role": "organizer"
+    },
+    {
+      "id": 3,
+      "name": "Zulieha Tahiru",
+      "email": "zulieha@example.com",
+      "password": "1234",
+      "role": "spectator"
+    },
+    {
+      "id": 4,
+      "name": "Ramatu Abdul Rahman",
+      "email": "ramatu@example.com",
+      "password": "1234",
+      "role": "spectator"
+    }
   ],
   "events": [
     {
@@ -17,7 +41,7 @@
       "category": "workshop",
       "technology": "React",
       "agenda": "10:00 Intro to Hooks, 11:00 useState & useEffect, 12:00 Lunch, 13:00 Context API, 14:00 Practice Project",
-      "views": 124,
+      "views": 1025,
       "createdAt": "2026-09-01"
     },
     {
@@ -92,15 +116,65 @@
     }
   ],
   "registrations": [
-    { "id": 1, "eventId": 1, "userId": 3, "status": "confirmed" },
-    { "id": 2, "eventId": 1, "userId": 4, "status": "confirmed" },
-    { "id": 3, "eventId": 3, "userId": 3, "status": "confirmed" },
-    { "id": 4, "eventId": 2, "userId": 3, "status": "confirmed" },
-    { "id": 5, "eventId": 4, "userId": 4, "status": "confirmed" }
+    {
+      "id": 1,
+      "eventId": 1,
+      "userId": 3,
+      "status": "confirmed"
+    },
+    {
+      "id": 2,
+      "eventId": 1,
+      "userId": 4,
+      "status": "confirmed"
+    },
+    {
+      "id": 3,
+      "eventId": 3,
+      "userId": 3,
+      "status": "confirmed"
+    },
+    {
+      "id": 4,
+      "eventId": 2,
+      "userId": 3,
+      "status": "confirmed"
+    },
+    {
+      "id": 5,
+      "eventId": 4,
+      "userId": 4,
+      "status": "confirmed"
+    }
   ],
   "notifications": [
-    { "id": 1, "userId": 3, "eventId": 1, "type": "registration", "message": "You registered for React Workshop", "read": false, "createdAt": "2026-09-20" },
-    { "id": 2, "userId": 3, "eventId": 3, "type": "registration", "message": "You registered for AI for Developers", "read": true, "createdAt": "2026-09-22" },
-    { "id": 3, "userId": 4, "eventId": 1, "type": "registration", "message": "You registered for React Workshop", "read": false, "createdAt": "2026-09-21" }
-  ]
+    {
+      "id": 1,
+      "userId": 3,
+      "eventId": 1,
+      "type": "registration",
+      "message": "You registered for React Workshop",
+      "read": false,
+      "createdAt": "2026-09-20"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "eventId": 3,
+      "type": "registration",
+      "message": "You registered for AI for Developers",
+      "read": true,
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "eventId": 1,
+      "type": "registration",
+      "message": "You registered for React Workshop",
+      "read": false,
+      "createdAt": "2026-09-21"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -29,7 +29,7 @@ export const incrementViews = (id) =>
   API.get(`/events/${id}`).then(res => {
     const current = res.data.views || 0;
     return API.patch(`/events/${id}`, { views: current + 1 }).then(r => r.data);
-  });
+  }).catch(() => null);
 
 // Registrations
 export const getRegistrations = (eventId) =>

@@ -17,14 +17,17 @@ export default function EventDetail() {
     setLoading(true);
     getEvent(id).then(data => {
       setEvent(data);
-      incrementViews(id);
       setLoading(false);
-    });
+      incrementViews(id);
+    }).catch(() => setLoading(false));
+  }, [id]);
+
+  useEffect(() => {
     getRegistrations(id).then(data => {
       setRegistrations(data);
       setRegisteredCount(data.length);
       if (user) {
-        setIsRegistered(data.some(r => r.userId === user.id));
+        setIsRegistered(data.some(r => Number(r.userId) === user.id));
       }
     });
   }, [id, user]);
@@ -39,14 +42,14 @@ export default function EventDetail() {
 
     try {
       await createRegistration({
-        eventId: parseInt(id),
+        eventId: Number(id),
         userId: user.id,
         status: 'confirmed',
       });
 
       await createNotification({
         userId: user.id,
-        eventId: parseInt(id),
+        eventId: Number(id),
         type: 'registration',
         message: `You registered for ${event.title}`,
         read: false,
@@ -63,7 +66,7 @@ export default function EventDetail() {
   const handleCancel = async () => {
     if (!isRegistered) return;
 
-    const reg = registrations.find(r => r.userId === user.id);
+    const reg = registrations.find(r => Number(r.userId) === user.id);
     if (!reg) return;
 
     try {

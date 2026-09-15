@@ -43,7 +43,7 @@ export default function EditEvent() {
     );
   }
 
-  if (user && event.organizerId !== user.id) {
+  if (user && Number(event.organizerId) !== user.id) {
     return (
       <div className="edit-event-page bg-surface min-h-[60vh] flex items-center justify-center">
         <p className="edit-event-page__error text-secondary">You do not have access to edit this event.</p>
