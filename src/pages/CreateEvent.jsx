@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { createEvent } from '../api/api';
 import EventForm from '../components/EventForm';
 
+// Create event with organizerId, views, and createdAt //
 export default function CreateEvent() {
   const { user } = useAuth();
   const navigate = useNavigate();

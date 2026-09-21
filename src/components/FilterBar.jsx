@@ -10,7 +10,7 @@ export default function FilterBar({
 
   return (
     <div className="filter-bar bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-8">
-      {/* Search */}
+      {/* Search by title or description */}
       <div className="filter-bar__search mb-4">
         <input
           type="text"
@@ -21,7 +21,7 @@ export default function FilterBar({
         />
       </div>
 
-      {/* Filters */}
+      {/* Filter by category, modality, technology, date */}
       <div className="filter-bar__filters flex flex-col sm:flex-row sm:flex-wrap gap-3">
         <select
           name="category"

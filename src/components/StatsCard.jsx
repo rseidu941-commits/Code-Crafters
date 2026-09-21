@@ -1,3 +1,4 @@
+
 export default function StatsCard({ label, value }) {
   return (
     <div className="stats-card bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">

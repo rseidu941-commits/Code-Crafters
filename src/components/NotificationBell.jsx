@@ -8,12 +8,14 @@ export default function NotificationBell() {
   const [isOpen, setIsOpen] = useState(false);
   const bellRef = useRef(null);
 
+  // Fetch notifications on load //
   useEffect(() => {
     if (user) {
       getNotifications(user.id).then(data => setNotifications(data));
     }
   }, [user]);
 
+  // Close dropdown when clicking outside //
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (bellRef.current && !bellRef.current.contains(e.target)) {
@@ -24,6 +26,7 @@ export default function NotificationBell() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Mark single notification as read //
   const handleMarkAsRead = async (id) => {
     try {
       await updateNotification(id, { read: true });
@@ -35,6 +38,7 @@ export default function NotificationBell() {
     }
   };
 
+  // Mark all notifications as read //
   const handleMarkAllRead = async () => {
     const unread = notifications.filter(n => !n.read);
     try {

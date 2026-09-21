@@ -16,15 +16,17 @@ export default function Navbar() {
           <span className="navbar__brand text-lg md:text-xl font-bold text-primary">Code Crafters</span>
         </Link>
 
-        {/* Desktop links */}
+        {/* Desktop navigation */}
         <div className="navbar__links hidden md:flex items-center gap-6">
           <NavLink to="/" className={({ isActive }) => `navbar__link font-medium transition-colors ${isActive ? 'text-primary' : 'text-secondary hover:text-primary'}`}>Home</NavLink>
           <NavLink to="/events" className={({ isActive }) => `navbar__link font-medium transition-colors ${isActive ? 'text-primary' : 'text-secondary hover:text-primary'}`}>Events</NavLink>
 
+          {/* Logged in: show bell, name, role link, logout */}
           {user ? (
             <div className="navbar__user flex items-center gap-4">
               <NotificationBell />
               <span className="navbar__username text-sm text-secondary">Hi, {user.name}</span>
+              {/* Role-based links: My Events (organizer) / My Registrations (spectator) */}
               {user.role === 'organizer' && (
                 <NavLink to="/my-events" className={({ isActive }) => `navbar__link font-medium transition-colors ${isActive ? 'text-primary' : 'text-secondary hover:text-primary'}`}>My Events</NavLink>
               )}
@@ -34,11 +36,12 @@ export default function Navbar() {
               <button onClick={logout} className="navbar__logout text-sm text-secondary hover:text-primary">Logout</button>
             </div>
           ) : (
+            /* Logged out: show Join Community */
             <Link to="/register" className="navbar__join-btn bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition">Join Community</Link>
           )}
         </div>
 
-        {/* Mobile: hamburger + join community */}
+        {/* Mobile hamburger menu */}
         <div className="navbar__mobile flex items-center gap-2 md:hidden">
           {!user && (
             <Link to="/register" className="navbar__join-btn bg-primary text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium">Join</Link>
@@ -55,7 +58,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile dropdown */}
       {menuOpen && (
         <div className="navbar__dropdown md:hidden bg-white border-t px-4 py-4 flex flex-col gap-3">
           <NavLink to="/" onClick={() => setMenuOpen(false)} className="navbar__link font-medium transition-colors text-secondary hover:text-primary">Home</NavLink>

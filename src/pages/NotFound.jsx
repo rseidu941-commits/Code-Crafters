@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+// 404 page for undefined routes
 export default function NotFound() {
   return (
     <div className="not-found-page bg-surface min-h-[60vh] flex items-center justify-center py-12 px-4">

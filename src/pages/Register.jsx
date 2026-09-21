@@ -14,6 +14,7 @@ export default function Register() {
   const { login: authLogin } = useAuth();
   const navigate = useNavigate();
 
+  // Register: create user, auto-login, navigate home //
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -81,8 +82,8 @@ export default function Register() {
             />
           </div>
 
+          {/* Role selection: spectator or organizer */}
           <div className="register-page__field">
-            <label className="register-page__label block text-sm font-medium text-secondary mb-1">I want to be a</label>
             <div className="register-page__roles flex gap-4">
               <label className="register-page__role flex items-center gap-2 cursor-pointer">
                 <input

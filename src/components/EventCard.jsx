@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+
 export default function EventCard({ event }) {
   return (
     <Link to={`/events/${event.id}`} className="event-card block rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white hover:shadow-md transition">

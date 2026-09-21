@@ -9,6 +9,7 @@ export default function MyRegistrations() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Fetch user's registrations //
   useEffect(() => {
     if (user) {
       setLoading(true);
@@ -22,6 +23,7 @@ export default function MyRegistrations() {
     }
   }, [user]);
 
+  //  find event by ID //
   const getEventById = (eventId) => events.find(e => Number(e.id) === Number(eventId));
 
   if (loading) {

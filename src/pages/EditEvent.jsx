@@ -4,6 +4,7 @@ import { getEvent, updateEvent } from '../api/api';
 import { useAuth } from '../context/AuthContext';
 import EventForm from '../components/EventForm';
 
+// Fetch event to pre-fill form //
 export default function EditEvent() {
   const { id } = useParams();
   const { user } = useAuth();
@@ -43,6 +44,7 @@ export default function EditEvent() {
     );
   }
 
+  // Ownership protection: block if not organizer //
   if (user && Number(event.organizerId) !== Number(user.id)) {
     return (
       <div className="edit-event-page bg-surface min-h-[60vh] flex items-center justify-center">

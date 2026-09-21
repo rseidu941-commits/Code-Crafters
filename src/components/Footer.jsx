@@ -1,3 +1,4 @@
+
 export default function Footer() {
   return (
     <footer className="footer bg-secondary text-white py-8 px-4">

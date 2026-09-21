@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+
 const workshops = [
   { id: 1, title: 'React Workshop', date: 'Oct 12, 2026' },
   { id: 2, title: 'JavaScript Workshop', date: 'Oct 18, 2026' },

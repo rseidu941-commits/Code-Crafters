@@ -11,17 +11,20 @@ export default function EventStats() {
   const [registrations, setRegistrations] = useState([]);
   const [users, setUsers] = useState([]);
 
+  // Fetch event, registrations, and users //
   useEffect(() => {
     getEvent(id).then(data => setEvent(data));
     getRegistrations(id).then(data => setRegistrations(data));
     getUsers().then(data => setUsers(data));
   }, [id]);
 
+  // Resolve userId to name //
   const getUserName = (userId) => {
     const found = users.find(u => Number(u.id) === Number(userId));
     return found ? found.name : `User #${userId}`;
   };
 
+  // Toggle attendance: confirmed or attended //
   const handleToggleAttendance = async (regId, currentStatus) => {
     const newStatus = currentStatus === 'attended' ? 'confirmed' : 'attended';
     try {
@@ -42,6 +45,7 @@ export default function EventStats() {
     );
   }
 
+  // Ownership protection: block if not organizer //
   if (user && Number(event.organizerId) !== Number(user.id)) {
     return (
       <div className="event-stats-page bg-surface min-h-[60vh] flex items-center justify-center">

@@ -10,11 +10,12 @@ import MyEvents from '../pages/MyEvents';
 import EventStats from '../pages/EventStats';
 import MyRegistrations from '../pages/MyRegistrations';
 import NotFound from '../pages/NotFound';
-import ProtectedRoute from '../components/ProtectedRoute';
+import ProtectedRoute from './ProtectedRoute';
 
 export default function AppRoutes() {
   return (
     <Routes>
+      {/* Public routes */}
       <Route path="/" element={<Landing />} />
       <Route path="/events" element={<Events />} />
       <Route path="/events/:id" element={<EventDetail />} />

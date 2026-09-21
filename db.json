@@ -8,25 +8,11 @@
       "role": "organizer"
     },
     {
-      "id": "2",
-      "name": "Abdul Hamid Umar",
-      "email": "abdul@femcoders.com",
+      "name": "Amina",
+      "email": "amina123@example.com",
       "password": "1234",
-      "role": "organizer"
-    },
-    {
-      "id": "3",
-      "name": "Zulieha Tahiru",
-      "email": "zulieha@example.com",
-      "password": "1234",
-      "role": "spectator"
-    },
-    {
-      "id": "4",
-      "name": "Ramatu Abdul Rahman",
-      "email": "ramatu@example.com",
-      "password": "1234",
-      "role": "spectator"
+      "role": "spectator",
+      "id": "iWC7yNbZObg"
     }
   ],
   "events": [
@@ -40,8 +26,8 @@
       "location": "Zoom Meeting",
       "category": "workshop",
       "technology": "React",
-      "agenda": "10:00 Intro to Hooks, 11:00 useState & useEffect, 12:00 Lunch, 13:00 Context API, 14:00 Practice Project",
-      "views": 1028,
+      "agenda": "10:00 Intro to Hooks, 11:00 useState and useEffect, 12:00 Lunch, 13:00 Context API, 14:00 Practice Project",
+      "views": 0,
       "createdAt": "2026-09-01"
     },
     {
@@ -54,13 +40,13 @@
       "location": "Factorial F5 Av.del Botgatell,82,Sant Marti,08005 Barcelona",
       "category": "workshop",
       "technology": "JavaScript",
-      "agenda": "09:30 Welcome, 10:00 ES6+ Features, 11:30 Async/Await, 13:00 Lunch, 14:00 Closures & Scope, 15:30 Exercises",
-      "views": 94,
+      "agenda": "09:30 Welcome, 10:00 ES6+ Features, 11:30 Async/Await, 13:00 Lunch, 14:00 Closures and Scope, 15:30 Exercises",
+      "views": 1,
       "createdAt": "2026-09-05"
     },
     {
       "id": "3",
-      "organizerId": 2,
+      "organizerId": 1,
       "title": "AI for Developers",
       "description": "Introduction to AI tools and APIs that every developer should know. Learn prompt engineering and API integration.",
       "date": "2026-11-02",
@@ -69,12 +55,12 @@
       "category": "bootcamp",
       "technology": "AI",
       "agenda": "10:00 What is AI, 11:00 Prompt Engineering, 12:00 API Integration, 13:00 Lunch, 14:00 Building an AI App",
-      "views": 203,
+      "views": 2,
       "createdAt": "2026-09-10"
     },
     {
       "id": "4",
-      "organizerId": 2,
+      "organizerId": 1,
       "title": "DevOps Bootcamp",
       "description": "Learn Docker, CI/CD pipelines, and cloud deployment basics. From zero to deployed application.",
       "date": "2026-11-15",
@@ -83,7 +69,7 @@
       "category": "bootcamp",
       "technology": "DevOps",
       "agenda": "09:00 Docker Basics, 11:00 CI/CD Concepts, 13:00 Lunch, 14:00 GitHub Actions, 16:00 Cloud Deployment",
-      "views": 156,
+      "views": 0,
       "createdAt": "2026-09-12"
     },
     {
@@ -97,12 +83,12 @@
       "category": "workshop",
       "technology": "CSS",
       "agenda": "10:00 Flexbox Deep Dive, 11:30 Grid Layout, 13:00 Lunch, 14:00 Animations, 15:00 Tailwind Workshop",
-      "views": 67,
+      "views": 0,
       "createdAt": "2026-09-15"
     },
     {
       "id": "6",
-      "organizerId": 2,
+      "organizerId": 1,
       "title": "TypeScript for React",
       "description": "Learn how TypeScript improves React development with type safety, interfaces, and better developer experience.",
       "date": "2026-11-08",
@@ -111,79 +97,18 @@
       "category": "workshop",
       "technology": "TypeScript",
       "agenda": "10:00 TS Basics, 11:30 Generics, 13:00 Lunch, 14:00 TS + React, 15:30 Practice",
-      "views": 93,
+      "views": 0,
       "createdAt": "2026-09-18"
     }
   ],
   "registrations": [
     {
-      "id": "1",
-      "eventId": 1,
-      "userId": 3,
-      "status": "confirmed"
-    },
-    {
-      "id": "2",
-      "eventId": 1,
-      "userId": 4,
-      "status": "confirmed"
-    },
-    {
-      "id": "4",
-      "eventId": 2,
-      "userId": 3,
-      "status": "confirmed"
-    },
-    {
-      "id": "5",
-      "eventId": 4,
-      "userId": 4,
-      "status": "confirmed"
-    },
-    {
       "eventId": 3,
-      "userId": "3",
+      "userId": "iWC7yNbZObg",
       "status": "confirmed",
-      "id": "2d7bjczlvVY"
+      "id": "T0i1Jw9AcwI"
     }
   ],
-  "notifications": [
-    {
-      "id": "1",
-      "userId": 3,
-      "eventId": 1,
-      "type": "registration",
-      "message": "You registered for React Workshop",
-      "read": false,
-      "createdAt": "2026-09-20"
-    },
-    {
-      "id": "2",
-      "userId": 3,
-      "eventId": 3,
-      "type": "registration",
-      "message": "You registered for AI for Developers",
-      "read": true,
-      "createdAt": "2026-09-22"
-    },
-    {
-      "id": "3",
-      "userId": 4,
-      "eventId": 1,
-      "type": "registration",
-      "message": "You registered for React Workshop",
-      "read": false,
-      "createdAt": "2026-09-21"
-    },
-    {
-      "userId": "3",
-      "eventId": 3,
-      "type": "registration",
-      "message": "You registered for AI for Developers",
-      "read": false,
-      "createdAt": "2026-09-15",
-      "id": "fvRk40MMrqg"
-    }
-  ],
+  "notifications": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

@@ -13,6 +13,7 @@ export default function EventDetail() {
   const [registeredCount, setRegisteredCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
+  // Fetch event and increment views //
   useEffect(() => {
     setLoading(true);
     getEvent(id).then(data => {
@@ -22,6 +23,7 @@ export default function EventDetail() {
     }).catch(() => setLoading(false));
   }, [id]);
 
+  // Fetch registrations and check if user is registered //
   useEffect(() => {
     getRegistrations(id).then(data => {
       setRegistrations(data);
@@ -32,6 +34,7 @@ export default function EventDetail() {
     });
   }, [id, user]);
 
+  // Register for event and create notification //
   const handleRegister = async () => {
     if (!user) {
       navigate('/login');
@@ -63,6 +66,7 @@ export default function EventDetail() {
     }
   };
 
+  // Cancel registration //
   const handleCancel = async () => {
     if (!isRegistered) return;
 

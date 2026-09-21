@@ -1,3 +1,4 @@
+
 export default function CommunityProof() {
   return (
     <section className="community py-16 px-4 bg-surface">

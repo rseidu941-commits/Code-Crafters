@@ -11,6 +11,7 @@ export default function Login() {
   const { login: authLogin } = useAuth();
   const navigate = useNavigate();
 
+  // Login //
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');

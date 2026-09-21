@@ -8,6 +8,7 @@ export default function MyEvents() {
   const [events, setEvents] = useState([]);
   const [eventStats, setEventStats] = useState({});
 
+  // Fetch events and filter by organizerId //
   useEffect(() => {
     if (user) {
       getEvents().then(data => {
@@ -23,6 +24,7 @@ export default function MyEvents() {
     }
   }, [user]);
 
+  // Delete event with confirmation //
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {

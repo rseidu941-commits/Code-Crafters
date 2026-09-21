@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function Hero() {
+  const { user } = useAuth();
+
   return (
     <section className="hero bg-surface py-12 md:py-20 px-4">
       <div className="hero__container max-w-6xl mx-auto text-center">
@@ -16,10 +19,13 @@ export default function Hero() {
           <img src="/images/hero_image.png" alt="Team collaborating" className="hero__image w-full max-w-sm md:max-w-md mx-auto" />
         </div>
 
-        <div className="hero__actions flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-          <Link to="/events" className="hero__btn-primary bg-accent text-white px-6 md:px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition w-full sm:w-auto text-center">Explore Events</Link>
-          <Link to="/register" className="hero__btn-secondary border-2 border-primary text-primary px-6 md:px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition w-full sm:w-auto text-center">Join Community</Link>
-        </div>
+        {/* Hide buttons when logged in */}
+        {!user && (
+          <div className="hero__actions flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link to="/events" className="hero__btn-primary bg-accent text-white px-6 md:px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition w-full sm:w-auto text-center">Explore Events</Link>
+            <Link to="/register" className="hero__btn-secondary border-2 border-primary text-primary px-6 md:px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition w-full sm:w-auto text-center">Join Community</Link>
+          </div>
+        )}
       </div>
     </section>
   );

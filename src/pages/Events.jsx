@@ -15,6 +15,7 @@ export default function Events() {
     date: '',
   });
 
+  // Fetch all events on load //
   useEffect(() => {
     setLoading(true);
     getEvents().then(data => {
@@ -26,6 +27,7 @@ export default function Events() {
     });
   }, []);
 
+  // Client-side search and filter //
   const filteredEvents = events.filter(event => {
     const matchesSearch =
       event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
