@@ -8,11 +8,11 @@
       "role": "organizer"
     },
     {
-      "name": "Amina",
-      "email": "amina123@example.com",
+      "name": "Ramatu",
+      "email": "ramatu123@gmail.com",
       "password": "1234",
       "role": "spectator",
-      "id": "iWC7yNbZObg"
+      "id": "qY1ug-o4BlU"
     }
   ],
   "events": [
@@ -27,7 +27,7 @@
       "category": "workshop",
       "technology": "React",
       "agenda": "10:00 Intro to Hooks, 11:00 useState and useEffect, 12:00 Lunch, 13:00 Context API, 14:00 Practice Project",
-      "views": 0,
+      "views": 6,
       "createdAt": "2026-09-01"
     },
     {
@@ -41,22 +41,8 @@
       "category": "workshop",
       "technology": "JavaScript",
       "agenda": "09:30 Welcome, 10:00 ES6+ Features, 11:30 Async/Await, 13:00 Lunch, 14:00 Closures and Scope, 15:30 Exercises",
-      "views": 1,
+      "views": 5,
       "createdAt": "2026-09-05"
-    },
-    {
-      "id": "3",
-      "organizerId": 1,
-      "title": "AI for Developers",
-      "description": "Introduction to AI tools and APIs that every developer should know. Learn prompt engineering and API integration.",
-      "date": "2026-11-02",
-      "modality": "online",
-      "location": "Google Meet",
-      "category": "bootcamp",
-      "technology": "AI",
-      "agenda": "10:00 What is AI, 11:00 Prompt Engineering, 12:00 API Integration, 13:00 Lunch, 14:00 Building an AI App",
-      "views": 2,
-      "createdAt": "2026-09-10"
     },
     {
       "id": "4",
@@ -69,7 +55,7 @@
       "category": "bootcamp",
       "technology": "DevOps",
       "agenda": "09:00 Docker Basics, 11:00 CI/CD Concepts, 13:00 Lunch, 14:00 GitHub Actions, 16:00 Cloud Deployment",
-      "views": 0,
+      "views": 5,
       "createdAt": "2026-09-12"
     },
     {
@@ -101,14 +87,35 @@
       "createdAt": "2026-09-18"
     }
   ],
-  "registrations": [
+  "registrations": [],
+  "notifications": [
     {
-      "eventId": 3,
-      "userId": "iWC7yNbZObg",
-      "status": "confirmed",
-      "id": "T0i1Jw9AcwI"
+      "userId": "qY1ug-o4BlU",
+      "eventId": 4,
+      "type": "registration",
+      "message": "You registered for DevOps Bootcamp",
+      "read": true,
+      "createdAt": "2026-09-23",
+      "id": "3rRZGVfSZAQ"
+    },
+    {
+      "userId": "qY1ug-o4BlU",
+      "eventId": 4,
+      "type": "registration",
+      "message": "You registered for DevOps Bootcamp",
+      "read": true,
+      "createdAt": "2026-09-23",
+      "id": "2TsNQO20Hvw"
+    },
+    {
+      "userId": "qY1ug-o4BlU",
+      "eventId": 1,
+      "type": "registration",
+      "message": "You registered for React Workshop",
+      "read": true,
+      "createdAt": "2026-09-23",
+      "id": "1pIqq4_ykto"
     }
   ],
-  "notifications": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

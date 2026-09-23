@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getEvent, getRegistrations, createRegistration, createNotification, incrementViews, deleteRegistration } from '../api/api';
+import { getEvent, getRegistrations, createRegistration, createNotification, incrementViews } from '../api/api';
 import { useAuth } from '../context/AuthContext';
 
 export default function EventDetail() {
@@ -12,6 +12,7 @@ export default function EventDetail() {
   const [isRegistered, setIsRegistered] = useState(false);
   const [registeredCount, setRegisteredCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [feedback, setFeedback] = useState(null);
 
   // Fetch event and increment views //
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function EventDetail() {
       setRegistrations(data);
       setRegisteredCount(data.length);
       if (user) {
-        setIsRegistered(data.some(r => Number(r.userId) === Number(user.id)));
+        setIsRegistered(data.some(r => String(r.userId) === String(user.id)));
       }
     });
   }, [id, user]);
@@ -41,7 +42,10 @@ export default function EventDetail() {
       return;
     }
 
-    if (isRegistered) return;
+    if (isRegistered) {
+      setFeedback({ type: 'error', text: 'You are already registered for this event.' });
+      return;
+    }
 
     try {
       await createRegistration({
@@ -61,24 +65,10 @@ export default function EventDetail() {
 
       setIsRegistered(true);
       setRegisteredCount(registeredCount + 1);
+      setFeedback({ type: 'success', text: 'Registered successfully!' });
+      window.dispatchEvent(new Event('notificationsUpdated'));
     } catch {
-      alert('Failed to register. Please try again.');
-    }
-  };
-
-  // Cancel registration //
-  const handleCancel = async () => {
-    if (!isRegistered) return;
-
-    const reg = registrations.find(r => Number(r.userId) === Number(user.id));
-    if (!reg) return;
-
-    try {
-      await deleteRegistration(reg.id);
-      setIsRegistered(false);
-      setRegisteredCount(registeredCount - 1);
-    } catch {
-      alert('Failed to cancel registration.');
+      setFeedback({ type: 'error', text: 'Registration failed, try again.' });
     }
   };
 
@@ -155,22 +145,19 @@ export default function EventDetail() {
                 {registeredCount} {registeredCount === 1 ? 'person' : 'people'} registered
               </p>
             </div>
-            <div className="flex gap-3 w-full sm:w-auto">
-              {isRegistered ? (
-                <button
-                  onClick={handleCancel}
-                  className="event-detail-page__cancel-btn px-8 py-3 rounded-lg font-semibold transition bg-red-50 text-red-600 hover:bg-red-100 w-full sm:w-auto"
-                >
-                  Cancel Registration
-                </button>
-              ) : (
-                <button
-                  onClick={handleRegister}
-                  className="event-detail-page__register-btn px-8 py-3 rounded-lg font-semibold transition bg-accent text-white hover:opacity-90 w-full sm:w-auto"
-                >
-                  Register
-                </button>
+            <div className="flex flex-col w-full sm:w-auto gap-3">
+              {feedback && (
+                <p className={`event-detail-page__feedback text-sm font-medium ${feedback.type === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                  {feedback.text}
+                </p>
               )}
+              <button
+                onClick={handleRegister}
+                disabled={isRegistered}
+                className="event-detail-page__register-btn px-8 py-3 rounded-lg font-semibold transition bg-accent text-white hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
+              >
+                {isRegistered ? 'Registered' : 'Register'}
+              </button>
             </div>
           </div>
         </div>

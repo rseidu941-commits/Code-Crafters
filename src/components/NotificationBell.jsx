@@ -15,6 +15,17 @@ export default function NotificationBell() {
     }
   }, [user]);
 
+  // Refresh notifications when a new one is created //
+  useEffect(() => {
+    const handleUpdate = () => {
+      if (user) {
+        getNotifications(user.id).then(data => setNotifications(data));
+      }
+    };
+    window.addEventListener('notificationsUpdated', handleUpdate);
+    return () => window.removeEventListener('notificationsUpdated', handleUpdate);
+  }, [user]);
+
   // Close dropdown when clicking outside //
   useEffect(() => {
     const handleClickOutside = (e) => {

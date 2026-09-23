@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { getRegistrationsByUser, getEvents } from '../api/api';
+import { getRegistrationsByUser, getEvents, deleteRegistration } from '../api/api';
 
 export default function MyRegistrations() {
   const { user } = useAuth();
@@ -22,6 +22,17 @@ export default function MyRegistrations() {
       });
     }
   }, [user]);
+
+  // Cancel registration with confirmation //
+  const handleCancel = async (reg) => {
+    if (!window.confirm('Cancel your registration for this event?')) return;
+    try {
+      await deleteRegistration(reg.id);
+      setRegistrations(prev => prev.filter(r => r.id !== reg.id));
+    } catch {
+      alert('Failed to cancel registration.');
+    }
+  };
 
   //  find event by ID //
   const getEventById = (eventId) => events.find(e => Number(e.id) === Number(eventId));
@@ -52,12 +63,20 @@ export default function MyRegistrations() {
               const event = getEventById(reg.eventId);
               if (!event) return null;
               return (
-                <Link key={reg.id} to={`/events/${event.id}`} className="my-registrations-page__card block bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition">
+                <div key={reg.id} className="my-registrations-page__card bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition">
+              <Link to={`/events/${event.id}`} className="my-registrations-page__card-link block">
                   <div className="my-registrations-page__card-strip bg-primary h-2 rounded-t-xl -mt-6 -mx-6 mb-4"></div>
                   <h3 className="my-registrations-page__card-title font-semibold text-secondary mb-1">{event.title}</h3>
                   <p className="my-registrations-page__card-date text-sm text-gray-500 mb-2">{event.date}</p>
                   <span className="my-registrations-page__card-status inline-block bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">{reg.status}</span>
                 </Link>
+                <button
+                  onClick={() => handleCancel(reg)}
+                  className="my-registrations-page__cancel-btn mt-4 w-full text-sm font-semibold text-red-600 bg-red-50 hover:bg-red-100 px-4 py-2 rounded-lg transition"
+                >
+                  Cancel Registration
+                </button>
+              </div>
               );
             })}
           </div>
